@@ -13,7 +13,7 @@
 
 <img width="1885" height="966" alt="Screenshot 2026-02-04 at 7 26 54 PM" src="https://github.com/user-attachments/assets/3010b22b-1f19-42bb-a32e-8268b8d5c2e7" />
 
-![Uploading Screenshot 2026-02-04 at 7.27.04 PM.png…]()
+<img width="1901" height="969" alt="Screenshot 2026-02-04 at 7 27 04 PM" src="https://github.com/user-attachments/assets/1a011161-6c90-43ea-b398-d8405d1815b3" />
 
 
 ## 🚀 Vision
