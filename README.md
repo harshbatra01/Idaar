@@ -7,6 +7,15 @@
 
 ---
 
+## Screenshots
+
+<img width="1890" height="962" alt="Screenshot 2026-02-04 at 7 26 43 PM" src="https://github.com/user-attachments/assets/97bca323-d2cb-4e81-a483-390b795348a1" />
+
+<img width="1885" height="966" alt="Screenshot 2026-02-04 at 7 26 54 PM" src="https://github.com/user-attachments/assets/3010b22b-1f19-42bb-a32e-8268b8d5c2e7" />
+
+![Uploading Screenshot 2026-02-04 at 7.27.04 PM.png…]()
+
+
 ## 🚀 Vision
 
 Administrative tasks in educational institutions often suffer from "approval bottlenecks." IDAAR solves this by implementing dynamic routing logic that ensures every request—be it leave, budget, or equipment—finds the right approver at the right time, with zero manual intervention.
