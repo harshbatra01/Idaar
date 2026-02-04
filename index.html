@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDAAR | Faculty Role-Based Management System</title>
+    <meta name="description" content="IDAAR - Intelligent Dynamic Automated Approval & Routing System for College Faculty Management with Power Automate Integration">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect x="4" y="4" width="32" height="32" rx="8" fill="url(#logoGrad)"/>
+                        <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="4" y1="4" x2="36" y2="36">
+                                <stop stop-color="#6366f1"/>
+                                <stop offset="1" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">IDAAR</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+            </ul>
+            <button class="nav-cta" id="launchDemo">
+                <span>Launch Demo</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">⚡</span>
+                <span>Powered by Microsoft Power Automate</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Intelligent Dynamic</span>
+                <span class="title-line gradient-text">Automated Approval</span>
+                <span class="title-line">& Routing System</span>
+            </h1>
+            <p class="hero-description">
+                A comprehensive role-based management system for college faculty featuring 
+                end-to-end multi-step approval workflows, intelligent routing, and seamless 
+                Power Automate integration.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value" data-count="15">0</span>
+                    <span class="stat-label">Workflow Triggers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" data-count="8">0</span>
+                    <span class="stat-label">Approval Levels</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" data-count="12">0</span>
+                    <span class="stat-label">Role Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" data-count="99">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Automation Rate</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <button class="btn btn-primary" id="exploreWorkflow">
+                    <span>Explore Workflow</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="btn btn-secondary" id="viewArchitecture">
+                    <span>View Architecture</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="workflow-preview">
+                <div class="workflow-card trigger-card">
+                    <div class="card-icon trigger">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Trigger</span>
+                    <span class="card-title">New Request</span>
+                </div>
+                <div class="workflow-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+                <div class="workflow-card condition-card">
+                    <div class="card-icon condition">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 12l10 10 10-10L12 2z"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Condition</span>
+                    <span class="card-title">Role Check</span>
+                </div>
+                <div class="workflow-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+                <div class="workflow-card approval-card">
+                    <div class="card-icon approval">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Action</span>
+                    <span class="card-title">Route & Approve</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Power Automate Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">Power Automate Integration</span>
+            <h2 class="section-title">Built with Enterprise-Grade Automation</h2>
+            <p class="section-description">Leveraging Microsoft Power Automate's powerful capabilities to create seamless, intelligent workflows</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon triggers">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3>Automated Triggers</h3>
+                <p>Event-driven workflows activated by form submissions, schedule-based triggers, and system events.</p>
+                <div class="feature-tags">
+                    <span>When item created</span>
+                    <span>Manual trigger</span>
+                    <span>Scheduled</span>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon conditions">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 12h8M12 8v8"/>
+                    </svg>
+                </div>
+                <h3>Smart Conditions</h3>
+                <p>Dynamic branching logic based on request type, department, approval amount, and custom criteria.</p>
+                <div class="feature-tags">
+                    <span>If/Else branches</span>
+                    <span>Switch cases</span>
+                    <span>Parallel paths</span>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon approvals">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <path d="M9 15l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3>Multi-Level Approvals</h3>
+                <p>Sequential and parallel approval chains with automatic escalation and delegation support.</p>
+                <div class="feature-tags">
+                    <span>Start & Wait</span>
+                    <span>First to respond</span>
+                    <span>Everyone must approve</span>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon routing">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="5" cy="12" r="3"/>
+                        <circle cx="19" cy="6" r="3"/>
+                        <circle cx="19" cy="18" r="3"/>
+                        <path d="M8 12h4M12 12l4-4M12 12l4 4"/>
+                    </svg>
+                </div>
+                <h3>Role-Based Routing</h3>
+                <p>Intelligent request routing based on organizational hierarchy and role assignments.</p>
+                <div class="feature-tags">
+                    <span>Dynamic routing</span>
+                    <span>Role lookup</span>
+                    <span>Manager chain</span>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon notifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                </div>
+                <h3>Smart Notifications</h3>
+                <p>Contextual email alerts, Teams messages, and mobile push notifications at each workflow stage.</p>
+                <div class="feature-tags">
+                    <span>Outlook</span>
+                    <span>Teams</span>
+                    <span>Adaptive cards</span>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-icon connectors">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                </div>
+                <h3>Enterprise Connectors</h3>
+                <p>Seamless integration with SharePoint, Dataverse, Office 365, and custom APIs.</p>
+                <div class="feature-tags">
+                    <span>SharePoint</span>
+                    <span>Dataverse</span>
+                    <span>HTTP connectors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Workflow Section -->
+    <section class="workflow-section" id="workflow">
+        <div class="section-header">
+            <span class="section-tag">Workflow Visualization</span>
+            <h2 class="section-title">Multi-Step Approval Workflow</h2>
+            <p class="section-description">Experience the complete approval journey from request submission to final approval</p>
+        </div>
+        <div class="workflow-container">
+            <div class="workflow-timeline">
+                <!-- Step 1: Trigger -->
+                <div class="workflow-step active" data-step="1">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon trigger">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <div class="node-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">TRIGGER</span>
+                        <h4 class="step-title">Request Initiated</h4>
+                        <p class="step-description">Faculty member submits a new approval request through the portal</p>
+                        <div class="step-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Connector:</span>
+                                <span class="detail-value">SharePoint - When item is created</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Site:</span>
+                                <span class="detail-value">Faculty Portal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Initialize Variables -->
+                <div class="workflow-step" data-step="2">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon action">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">ACTION</span>
+                        <h4 class="step-title">Initialize Variables</h4>
+                        <p class="step-description">Set up workflow variables for tracking and routing decisions</p>
+                        <div class="step-code">
+                            <code>
+                                <span class="code-key">ApprovalLevel</span>: <span class="code-value">1</span><br>
+                                <span class="code-key">RequesterRole</span>: <span class="code-value">@{triggerBody()?['Role']}</span><br>
+                                <span class="code-key">Department</span>: <span class="code-value">@{triggerBody()?['Department']}</span>
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Condition -->
+                <div class="workflow-step" data-step="3">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon condition">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 12l10 10 10-10L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">CONDITION</span>
+                        <h4 class="step-title">Check Request Type</h4>
+                        <p class="step-description">Evaluate request category to determine approval chain</p>
+                        <div class="condition-branches">
+                            <div class="branch yes">
+                                <span class="branch-label">Yes</span>
+                                <span class="branch-condition">Amount > ₹50,000</span>
+                            </div>
+                            <div class="branch no">
+                                <span class="branch-label">No</span>
+                                <span class="branch-condition">Standard Approval</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Get Approver -->
+                <div class="workflow-step" data-step="4">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon action">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">ACTION</span>
+                        <h4 class="step-title">Get Role-Based Approver</h4>
+                        <p class="step-description">Dynamically retrieve approver based on department and hierarchy</p>
+                        <div class="step-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Action:</span>
+                                <span class="detail-value">Office 365 - Get Manager</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fallback:</span>
+                                <span class="detail-value">Department Head Lookup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Approval -->
+                <div class="workflow-step" data-step="5">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon approval">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">APPROVAL</span>
+                        <h4 class="step-title">Start and Wait for Approval</h4>
+                        <p class="step-description">Send approval request and await response from designated approver</p>
+                        <div class="approval-card-preview">
+                            <div class="approval-header">
+                                <span class="approval-icon">📋</span>
+                                <span>Approval Request</span>
+                            </div>
+                            <div class="approval-body">
+                                <p><strong>Faculty Leave Request</strong></p>
+                                <p>From: Dr. Sharma | Dates: Feb 10-15</p>
+                            </div>
+                            <div class="approval-actions">
+                                <button class="approve-btn">✓ Approve</button>
+                                <button class="reject-btn">✗ Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Check Outcome -->
+                <div class="workflow-step" data-step="6">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon condition">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 12l10 10 10-10L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">CONDITION</span>
+                        <h4 class="step-title">Evaluate Approval Outcome</h4>
+                        <p class="step-description">Check approval response and route accordingly</p>
+                        <div class="condition-branches">
+                            <div class="branch yes">
+                                <span class="branch-label">Approved</span>
+                                <span class="branch-condition">Next Level / Complete</span>
+                            </div>
+                            <div class="branch no">
+                                <span class="branch-label">Rejected</span>
+                                <span class="branch-condition">Notify & Close</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7: Update Status -->
+                <div class="workflow-step" data-step="7">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon action">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">ACTION</span>
+                        <h4 class="step-title">Update SharePoint List</h4>
+                        <p class="step-description">Record approval decision and update request status</p>
+                        <div class="step-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Action:</span>
+                                <span class="detail-value">Update Item</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-value status-approved">Approved ✓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 8: Notification -->
+                <div class="workflow-step" data-step="8">
+                    <div class="step-connector"></div>
+                    <div class="step-node">
+                        <div class="node-icon notification">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <span class="step-type">NOTIFICATION</span>
+                        <h4 class="step-title">Send Confirmation</h4>
+                        <p class="step-description">Notify all stakeholders of final decision via email and Teams</p>
+                        <div class="notification-preview">
+                            <div class="notif-icon">📧</div>
+                            <div class="notif-content">
+                                <strong>Your request has been approved!</strong>
+                                <p>Request #REQ-2024-0847 has been processed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workflow Controls -->
+            <div class="workflow-controls">
+                <button class="wf-control-btn" id="prevStep">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                </button>
+                <div class="step-indicator">
+                    <span id="currentStep">1</span> / <span id="totalSteps">8</span>
+                </div>
+                <button class="wf-control-btn" id="nextStep">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+                <button class="wf-control-btn play" id="playWorkflow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="section-header">
+            <span class="section-tag">Real-Time Monitoring</span>
+            <h2 class="section-title">Administrative Dashboard</h2>
+            <p class="section-description">Comprehensive overview of all approval workflows and system analytics</p>
+        </div>
+        <div class="dashboard-container">
+            <div class="dashboard-frame">
+                <div class="frame-header">
+                    <div class="frame-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="frame-title">IDAAR Admin Dashboard</div>
+                    <div class="frame-actions">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <!-- Stats Row -->
+                    <div class="dash-stats">
+                        <div class="dash-stat-card">
+                            <div class="stat-icon pending">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="24">0</span>
+                                <span class="stat-text">Pending Approvals</span>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card">
+                            <div class="stat-icon approved">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="156">0</span>
+                                <span class="stat-text">Approved This Month</span>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card">
+                            <div class="stat-icon rejected">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="12">0</span>
+                                <span class="stat-text">Rejected</span>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card">
+                            <div class="stat-icon time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">2.4</span><span class="stat-unit">hrs</span>
+                                <span class="stat-text">Avg. Response Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="dash-charts">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h4>Approval Trends</h4>
+                                <select class="chart-filter">
+                                    <option>Last 7 Days</option>
+                                    <option>Last 30 Days</option>
+                                    <option>This Quarter</option>
+                                </select>
+                            </div>
+                            <div class="chart-area">
+                                <div class="bar-chart">
+                                    <div class="bar" style="--height: 45%;" data-label="Mon"><span>12</span></div>
+                                    <div class="bar" style="--height: 65%;" data-label="Tue"><span>18</span></div>
+                                    <div class="bar" style="--height: 80%;" data-label="Wed"><span>24</span></div>
+                                    <div class="bar" style="--height: 55%;" data-label="Thu"><span>15</span></div>
+                                    <div class="bar" style="--height: 90%;" data-label="Fri"><span>28</span></div>
+                                    <div class="bar" style="--height: 30%;" data-label="Sat"><span>8</span></div>
+                                    <div class="bar" style="--height: 40%;" data-label="Sun"><span>11</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h4>By Department</h4>
+                            </div>
+                            <div class="chart-area">
+                                <div class="donut-chart">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle class="donut-segment" cx="50" cy="50" r="40" 
+                                            stroke="#6366f1" stroke-width="15" 
+                                            stroke-dasharray="75.4 175.93" stroke-dashoffset="0"/>
+                                        <circle class="donut-segment" cx="50" cy="50" r="40" 
+                                            stroke="#8b5cf6" stroke-width="15" 
+                                            stroke-dasharray="50.27 175.93" stroke-dashoffset="-75.4"/>
+                                        <circle class="donut-segment" cx="50" cy="50" r="40" 
+                                            stroke="#a78bfa" stroke-width="15" 
+                                            stroke-dasharray="37.7 175.93" stroke-dashoffset="-125.67"/>
+                                        <circle class="donut-segment" cx="50" cy="50" r="40" 
+                                            stroke="#c4b5fd" stroke-width="15" 
+                                            stroke-dasharray="37.7 175.93" stroke-dashoffset="-163.37"/>
+                                    </svg>
+                                    <div class="donut-center">
+                                        <span class="donut-value">192</span>
+                                        <span class="donut-label">Total</span>
+                                    </div>
+                                </div>
+                                <div class="donut-legend">
+                                    <div class="legend-item"><span style="background:#6366f1"></span>Engineering (30%)</div>
+                                    <div class="legend-item"><span style="background:#8b5cf6"></span>Science (20%)</div>
+                                    <div class="legend-item"><span style="background:#a78bfa"></span>Arts (15%)</div>
+                                    <div class="legend-item"><span style="background:#c4b5fd"></span>Commerce (15%)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dash-activity">
+                        <div class="activity-header">
+                            <h4>Recent Activity</h4>
+                            <button class="view-all-btn">View All →</button>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon approved">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </div>
+                                <div class="activity-details">
+                                    <span class="activity-title">Leave Request Approved</span>
+                                    <span class="activity-meta">Dr. Priya Sharma • HOD Approval • 5 min ago</span>
+                                </div>
+                                <span class="activity-status approved">Approved</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon pending">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div class="activity-details">
+                                    <span class="activity-title">Budget Request Pending</span>
+                                    <span class="activity-meta">Prof. Rajesh Kumar • Dean Review • 23 min ago</span>
+                                </div>
+                                <span class="activity-status pending">Pending</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon routed">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </div>
+                                <div class="activity-details">
+                                    <span class="activity-title">Equipment Request Routed</span>
+                                    <span class="activity-meta">Dr. Amit Verma • Sent to Finance • 1 hour ago</span>
+                                </div>
+                                <span class="activity-status routed">Routed</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon rejected">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div class="activity-details">
+                                    <span class="activity-title">Travel Request Rejected</span>
+                                    <span class="activity-meta">Dr. Meera Patel • Budget Exceeded • 2 hours ago</span>
+                                </div>
+                                <span class="activity-status rejected">Rejected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture-section" id="architecture">
+        <div class="section-header">
+            <span class="section-tag">System Design</span>
+            <h2 class="section-title">Technical Architecture</h2>
+            <p class="section-description">End-to-end integration architecture with Microsoft Power Platform</p>
+        </div>
+        <div class="architecture-container">
+            <div class="arch-diagram">
+                <!-- User Layer -->
+                <div class="arch-layer users">
+                    <div class="layer-label">Users</div>
+                    <div class="layer-content">
+                        <div class="arch-node user">
+                            <div class="node-icon">👨‍🏫</div>
+                            <span>Faculty</span>
+                        </div>
+                        <div class="arch-node user">
+                            <div class="node-icon">👨‍💼</div>
+                            <span>HOD</span>
+                        </div>
+                        <div class="arch-node user">
+                            <div class="node-icon">🎓</div>
+                            <span>Dean</span>
+                        </div>
+                        <div class="arch-node user">
+                            <div class="node-icon">⚙️</div>
+                            <span>Admin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arch-arrow">
+                    <svg viewBox="0 0 24 60" fill="none">
+                        <path d="M12 0 L12 50 M6 44 L12 50 L18 44" stroke="url(#arrowGrad)" stroke-width="2"/>
+                        <defs>
+                            <linearGradient id="arrowGrad" x1="12" y1="0" x2="12" y2="60">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Interface Layer -->
+                <div class="arch-layer interface">
+                    <div class="layer-label">Interface Layer</div>
+                    <div class="layer-content">
+                        <div class="arch-node interface-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <span>Power Apps Portal</span>
+                        </div>
+                        <div class="arch-node interface-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                    <line x1="12" y1="18" x2="12" y2="18"/>
+                                </svg>
+                            </div>
+                            <span>Mobile App</span>
+                        </div>
+                        <div class="arch-node interface-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <span>Teams Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arch-arrow">
+                    <svg viewBox="0 0 24 60" fill="none">
+                        <path d="M12 0 L12 50 M6 44 L12 50 L18 44" stroke="url(#arrowGrad)" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <!-- Automation Layer -->
+                <div class="arch-layer automation">
+                    <div class="layer-label">Automation Layer</div>
+                    <div class="layer-content power-automate">
+                        <div class="power-automate-box">
+                            <div class="pa-header">
+                                <svg class="pa-logo" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#0066FF"/>
+                                </svg>
+                                <span>Power Automate</span>
+                            </div>
+                            <div class="pa-flows">
+                                <div class="flow-item">
+                                    <span class="flow-icon">⚡</span>
+                                    <span>Leave Approval Flow</span>
+                                </div>
+                                <div class="flow-item">
+                                    <span class="flow-icon">⚡</span>
+                                    <span>Budget Request Flow</span>
+                                </div>
+                                <div class="flow-item">
+                                    <span class="flow-icon">⚡</span>
+                                    <span>Equipment Requisition Flow</span>
+                                </div>
+                                <div class="flow-item">
+                                    <span class="flow-icon">⚡</span>
+                                    <span>Travel Authorization Flow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arch-arrow">
+                    <svg viewBox="0 0 24 60" fill="none">
+                        <path d="M12 0 L12 50 M6 44 L12 50 L18 44" stroke="url(#arrowGrad)" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <!-- Data Layer -->
+                <div class="arch-layer data">
+                    <div class="layer-label">Data Layer</div>
+                    <div class="layer-content">
+                        <div class="arch-node data-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                                </svg>
+                            </div>
+                            <span>Dataverse</span>
+                        </div>
+                        <div class="arch-node data-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16v16H4z"/>
+                                    <path d="M4 10h16M10 4v16"/>
+                                </svg>
+                            </div>
+                            <span>SharePoint Lists</span>
+                        </div>
+                        <div class="arch-node data-node">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M3 9h18M9 21V9"/>
+                                </svg>
+                            </div>
+                            <span>Azure SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="tech-stack">
+                <h4>Technology Stack</h4>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-logo power-automate-logo"></div>
+                        <span>Power Automate</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-logo power-apps-logo"></div>
+                        <span>Power Apps</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-logo sharepoint-logo"></div>
+                        <span>SharePoint</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-logo teams-logo"></div>
+                        <span>MS Teams</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-logo azure-logo"></div>
+                        <span>Azure AD</span>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-logo dataverse-logo"></div>
+                        <span>Dataverse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <rect x="4" y="4" width="32" height="32" rx="8" fill="url(#logoGrad2)"/>
+                            <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="logoGrad2" x1="4" y1="4" x2="36" y2="36">
+                                    <stop stop-color="#6366f1"/>
+                                    <stop offset="1" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">IDAAR</span>
+                </div>
+                <p class="footer-tagline">Intelligent Dynamic Automated Approval & Routing</p>
+            </div>
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h5>Project Highlights</h5>
+                    <ul>
+                        <li>Multi-step approval workflows</li>
+                        <li>Role-based access control</li>
+                        <li>Power Automate integration</li>
+                        <li>Real-time notifications</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Technologies Used</h5>
+                    <ul>
+                        <li>Microsoft Power Automate</li>
+                        <li>Power Apps</li>
+                        <li>SharePoint Online</li>
+                        <li>Microsoft Teams</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Designed & Developed as a Portfolio Project | © 2024</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
